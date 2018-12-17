@@ -5,7 +5,7 @@ import Main from 'app/scenes/main'
 
 
 let game = new Engine({
-    debug: true,
+    debug: false,
     stageScaleMode: 'cover',
     fps: 60,
     orientation: 'landscape'
