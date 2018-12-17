@@ -27,9 +27,9 @@ export default {
     carrot: new Texture('res/textures/carrot.png', 1, 6),
     success: new Texture('res/textures/success.png'),
     fail: new Texture('res/textures/fail.png'),
-    dog1: new Texture('res/textures/dog1.png', 1, 12),
-    dog2: new Texture('res/textures/dog2.png', 1, 12),
-    dog3: new Texture('res/textures/dog3.png', 1, 12),
+    dog1: new Texture('res/textures/dog1.png', 4, 3),
+    dog2: new Texture('res/textures/dog2.png', 4, 3),
+    dog3: new Texture('res/textures/dog3.png', 4, 3),
     stoneSprite: new Texture('res/textures/stone.png', 1, 4),
     stickSprite: new Texture('res/textures/stick.png', 1, 3),
     boneSprite: new Texture('res/textures/bone.png', 1, 4)

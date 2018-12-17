@@ -247,9 +247,9 @@ export default class MainScene extends Scene {
             }
             // 判断每只狗狗，如果在咬胡萝卜，则胡萝卜被咬
             if (dog.collideWith(this.carrot)) {
-                dog.speed.set(0, 0)
-                this.carrot.isBeated = true
                 if (dog.currentAnimation == dog.animations.run && !dog.beat) {
+                    dog.speed.set(0, 0)
+                    this.carrot.isBeated = true
                     dog.beat = Adapter.setInterval(() => {
                         //扣除萝卜1点血量
                         if (this.carrot && this.carrot.health > 0) {
