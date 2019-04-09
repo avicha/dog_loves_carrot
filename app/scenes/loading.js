@@ -9,7 +9,7 @@ export default class LoadingScene extends Scene {
         return [resources.loadingBg, resources.schedule]
     }
     constructor(game) {
-        super()
+        super(game)
         // 加载背景图片
         this.loading_bg = this.addGameObject(new Sprite(0, 0, 1, {
             texture: resources.loadingBg

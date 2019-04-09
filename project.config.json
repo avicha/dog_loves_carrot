@@ -12,6 +12,8 @@
 	"appid": "wx6ac3f5090a6b99c5",
 	"projectname": "dog_loves_carrot",
 	"isGameTourist": true,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

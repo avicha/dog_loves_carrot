@@ -24,7 +24,7 @@ const TOOL_TYPE = {
 }
 export default class MainScene extends Scene {
     constructor(game) {
-        super()
+        super(game)
         this.game = game
         // 游戏进行中
         this.running = true
@@ -49,96 +49,112 @@ export default class MainScene extends Scene {
             stageHeight: game.stageHeight
         }))
         //头像背景
-        this.headBg = this.addGameObject(new Sprite(game.renderStageZone.left + 20, game.renderStageZone.top + 20, 3, {
-            texture: resources.headBg
+        this.headBg = this.addGameObject(new Sprite(20, 20, 3, {
+            texture: resources.headBg,
+            fixed: 'top-left'
         }))
         //头像
-        this.head = this.addGameObject(new Sprite(game.renderStageZone.left + 22, game.renderStageZone.top + 10, 4, {
-            texture: resources.head
+        this.head = this.addGameObject(new Sprite(22, 10, 4, {
+            texture: resources.head,
+            fixed: 'top-left'
         }))
         //道具背景
         this.toolBg = []
         for (var i = 0; i < 3; i++) {
-            this.toolBg[i] = this.addGameObject(new Sprite(game.renderStageZone.left + 120 + 70 * i, game.renderStageZone.top + 20, 3, {
-                texture: resources.toolBg
+            this.toolBg[i] = this.addGameObject(new Sprite(120 + 70 * i, 20, 3, {
+                texture: resources.toolBg,
+                fixed: 'top-left'
             }))
         }
         //石头
-        this.stoneTool = this.addGameObject(new Sprite(game.renderStageZone.left + 120, game.renderStageZone.top + 30, 4, {
+        this.stoneTool = this.addGameObject(new Sprite(120, 30, 4, {
             type: TOOL_TYPE.Stone,
             texture: resources.stone,
             count: 100,
-            cd: 1000
+            cd: 1000,
+            fixed: 'top-left'
         }))
         //石头数目
-        this.stoneNum = this.addGameObject(new Num(game.renderStageZone.left + 190, game.renderStageZone.top + 100, 5, {
+        this.stoneNum = this.addGameObject(new Num(190, 100, 5, {
             text: '*' + this.stoneTool.count.toString(),
             texture: resources.smallNum,
             align: Text.ALIGN.RIGHT,
-            valign: Text.VALIGN.BOTTOM
+            valign: Text.VALIGN.BOTTOM,
+            fixed: 'top-left'
         }))
         //木棍
-        this.stickTool = this.addGameObject(new Sprite(game.renderStageZone.left + 190, game.renderStageZone.top + 30, 4, {
+        this.stickTool = this.addGameObject(new Sprite(190, 30, 4, {
             type: TOOL_TYPE.Stick,
             texture: resources.stick,
             count: 30,
-            cd: 1000
+            cd: 1000,
+            fixed: 'top-left'
         }))
         //木棍数目
-        this.stickNum = this.addGameObject(new Num(game.renderStageZone.left + 260, game.renderStageZone.top + 100, 5, {
+        this.stickNum = this.addGameObject(new Num(260, 100, 5, {
             text: '*' + this.stickTool.count.toString(),
             texture: resources.smallNum,
             align: Text.ALIGN.RIGHT,
-            valign: Text.VALIGN.BOTTOM
+            valign: Text.VALIGN.BOTTOM,
+            fixed: 'top-left'
         }))
         //骨头
-        this.boneTool = this.addGameObject(new Sprite(game.renderStageZone.left + 260, game.renderStageZone.top + 30, 4, {
+        this.boneTool = this.addGameObject(new Sprite(260, 30, 4, {
             type: TOOL_TYPE.Bone,
             texture: resources.bone,
             count: 30,
-            cd: 1000
+            cd: 1000,
+            fixed: 'top-left'
         }))
         //骨头数目
-        this.boneNum = this.addGameObject(new Num(game.renderStageZone.left + 330, game.renderStageZone.top + 100, 5, {
+        this.boneNum = this.addGameObject(new Num(330, 100, 5, {
             text: '*' + this.boneTool.count.toString(),
             texture: resources.smallNum,
             align: Text.ALIGN.RIGHT,
-            valign: Text.VALIGN.BOTTOM
+            valign: Text.VALIGN.BOTTOM,
+            fixed: 'top-left'
         }))
         //血条背景
-        this.bloodBg = this.addGameObject(new Sprite(game.renderStageZone.left + 500, game.renderStageZone.top + 30, 3, {
-            texture: resources.bloodBg
+        this.bloodBg = this.addGameObject(new Sprite(500, 30, 3, {
+            texture: resources.bloodBg,
+            fixed: 'top-left'
         }))
         //血条
-        this.blood = this.addGameObject(new Sprite(game.renderStageZone.left + 510, game.renderStageZone.top + 45, 4, {
-            texture: resources.blood
+        this.blood = this.addGameObject(new Sprite(510, 45, 4, {
+            texture: resources.blood,
+            fixed: 'top-left'
         }))
         //菜单按钮
-        this.menuButton = this.addGameObject(new Sprite(game.renderStageZone.left, game.renderStageZone.bottom - 100, 3, {
-            texture: resources.menuButton
+        this.menuButton = this.addGameObject(new Sprite(0, -100, 3, {
+            texture: resources.menuButton,
+            fixed: 'bottom-left'
         }))
         //暂停按钮
-        this.stopButton = this.addGameObject(new Sprite(game.renderStageZone.left + 100, game.renderStageZone.bottom - 100, 3, {
-            texture: resources.stopButton
+        this.stopButton = this.addGameObject(new Sprite(100, -100, 3, {
+            texture: resources.stopButton,
+            fixed: 'bottom-left'
         }))
         //游戏分数
         this.sumScore = 0
         //显示分数背景
-        this.scoreBg = this.addGameObject(new Sprite(game.renderStageZone.left + 900, game.renderStageZone.bottom - 110, 3, {
-            texture: resources.scoreBg
+        this.scoreBg = this.addGameObject(new Sprite(900, -110, 3, {
+            texture: resources.scoreBg,
+            fixed: 'bottom-left'
         }))
         //分数
-        this.score = this.addGameObject(new Num(game.renderStageZone.left + 1050, game.renderStageZone.bottom - 100, 4, {
+        this.score = this.addGameObject(new Num(1050, -100, 4, {
             text: this.sumScore.toString(),
-            texture: resources.bigNum
+            texture: resources.bigNum,
+            fixed: 'bottom-left'
         }))
         //萝卜车
-        this.carrot = this.addGameObject(new Carrot(game.renderStageZone.left - 50, game.renderStageZone.top + 400, 5, {
+        this.carrot = this.addGameObject(new Carrot(-50, 400, 5, {
             health: 100,
             //是否被咬
             isBeated: false,
             //能够承受被咬的次数
-            bear: 10
+            bear: 10,
+            fixed: 'top-left'
         }))
         //狗狗
         this.dogs = []
@@ -216,14 +232,16 @@ export default class MainScene extends Scene {
         })
         // 失败则出现失败画面
         this.on('fail', () => {
-            this.fail = this.addGameObject(new Sprite(game.renderStageZone.left + 128, game.renderStageZone.top, 6, {
-                texture: resources.fail
+            this.fail = this.addGameObject(new Sprite(128, 0, 6, {
+                texture: resources.fail,
+                fixed: 'top-left'
             }))
         })
         // 成功则出现成功画面
         this.on('success', () => {
-            this.success = this.addGameObject(new Sprite(game.renderStageZone.left + 128, game.renderStageZone.top, 6, {
-                texture: resources.success
+            this.success = this.addGameObject(new Sprite(128, 0, 6, {
+                texture: resources.success,
+                fixed: 'top-left'
             }))
         })
     }
@@ -247,17 +265,19 @@ export default class MainScene extends Scene {
             }
             // 判断每只狗狗，如果在咬胡萝卜，则胡萝卜被咬
             if (dog.collideWith(this.carrot)) {
-                if (dog.currentAnimation == dog.animations.run && !dog.beat) {
-                    dog.speed.set(0, 0)
+                if (dog.currentAnimation == dog.animations.run) {
                     this.carrot.isBeated = true
-                    dog.beat = Adapter.setInterval(() => {
-                        //扣除萝卜1点血量
-                        if (this.carrot && this.carrot.health > 0) {
-                            this.carrot.health -= (100 / this.carrot.bear)
-                        } else {
-                            this.clearCarrotBeat(dog)
-                        }
-                    }, 1000)
+                    if (!dog.beat) {
+                        dog.speed.set(0, 0)
+                        dog.beat = Adapter.setInterval(() => {
+                            //扣除萝卜1点血量
+                            if (this.carrot && this.carrot.health > 0) {
+                                this.carrot.health -= (100 / this.carrot.bear)
+                            } else {
+                                this.clearCarrotBeat(dog)
+                            }
+                        }, 1000)
+                    }
                 }
             } else {
                 this.clearCarrotBeat(dog)
@@ -287,23 +307,26 @@ export default class MainScene extends Scene {
         let dog
         if (r < 0.3 * dt) {
             if (r < 0.1 * dt) {
-                dog = this.addGameObject(new Dog1(this.game.renderStageZone.right, this.game.renderStageZone.top + 500, 5, {
+                dog = this.addGameObject(new Dog1(0, 500, 5, {
                     health: 100,
                     speed: new Vector2(-this.speedH, 0),
-                    texture: resources.dog1
+                    texture: resources.dog1,
+                    fixed: 'top-right'
                 }))
             } else {
                 if (r < 0.2 * dt) {
-                    dog = this.addGameObject(new Dog2(this.game.renderStageZone.right, this.game.renderStageZone.top + 500, 5, {
+                    dog = this.addGameObject(new Dog2(0, 500, 5, {
                         health: 100,
                         speed: new Vector2(-this.speedH, 0),
-                        texture: resources.dog2
+                        texture: resources.dog2,
+                        fixed: 'top-right'
                     }))
                 } else {
-                    dog = this.addGameObject(new Dog3(this.game.renderStageZone.right, this.game.renderStageZone.top + 450, 5, {
+                    dog = this.addGameObject(new Dog3(0, 450, 5, {
                         health: 100,
                         speed: new Vector2(-this.speedH, 0),
-                        texture: resources.dog3
+                        texture: resources.dog3,
+                        fixed: 'top-right'
                     }))
                 }
             }
